@@ -25,7 +25,7 @@ const FCManualLook = (props) => {
         <h1>Build Your New Outfit</h1>
         <div className="icon-section">
           <div className="icon-container">
-            <Link to="/TopSelectionPage">
+            <Link to="/select-top">
               {selectedTop ? (
                 <img src={props.selectedTop.image} alt={props.selectedTop.name} className="icon" />
               ) : (

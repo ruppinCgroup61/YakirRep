@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 const CalendarPage = ({ selectedTop, selectedBottom }) => {
   const [date, setDate] = useState(new Date());
+  const userEmail = sessionStorage.getItem("email"); 
 
   const handleDateChange = (newDate) => {
     setDate(newDate);
@@ -13,14 +14,16 @@ const CalendarPage = ({ selectedTop, selectedBottom }) => {
   const handleAddToCalendar = async () => {
     const outfit = {
       lookId: -1,
-      topSelection_ItemId: selectedTop.id,
-      buttomSelection_ItemId: selectedBottom.id,
+      topSelection_ItemId: selectedTop.item_ID,
+      buttomSelection_ItemId: selectedBottom.item_ID,
       topSelection_Image: selectedTop.image,
       buttomSelection_Image: selectedBottom.image,
       createdDate: new Date().toISOString(), // תאריך הנוכחי
       calendarDate: date.toISOString(), // תאריך שנבחר על ידי המשתמש
       userEmail:userEmail
     };
+
+    console.log("LOOK:", outfit);
     try {
       const response = await fetch('https://localhost:7215/api/ManualLook', {
         method: 'POST',
@@ -55,7 +58,7 @@ const CalendarPage = ({ selectedTop, selectedBottom }) => {
         />
       </div>
       <div>
-      <Link to="/manual-look">
+      <Link to="/FCManualLook">
         <button onClick={handleAddToCalendar}>Add Outfit to Calendar</button>
         </Link>
       </div>

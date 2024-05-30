@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const TopSelectionPage = ({ setSelectedTop }) => {
+  //console.log("sss")
   const [tops, setTops] = useState([]);
   const userEmail = sessionStorage.getItem("email"); // Retrieve email from session storage
 
-  const GetAllTops = () => {
+  useEffect(() => {
     fetch(`https://localhost:7215/api/Item/GetAllTop${userEmail}`, { // Correct path according to your API
       method: 'GET',
       headers: {
@@ -26,18 +27,17 @@ const TopSelectionPage = ({ setSelectedTop }) => {
       .catch(error => {
         console.error('Error during fetching tops:', error);
       });
-  };
+    }, []);
 
-  useEffect(() => {
-    GetAllTops();
-  }, []); // Empty dependency array means this effect runs once after the initial render
+ 
+      // console.log(data);
 
   return (
     <div>
       <h2>Select a Top</h2>
       <div className="items-list">
         {tops.map(top => (
-          <div key={top.id} className="item">
+          <div key={top.item_ID} className="item">
             <Link to="/FCManualLook" onClick={() => setSelectedTop(top)}>
               <img src={top.image} alt={top.name} />
               <p>{top.name}</p>

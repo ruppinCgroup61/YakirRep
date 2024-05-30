@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LookALike Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d640140407248f0ac2e622dfec84680832f4d38c")]
 [assembly: System.Reflection.AssemblyProductAttribute("LookALike Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LookALike Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
